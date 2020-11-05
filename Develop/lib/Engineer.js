@@ -12,7 +12,7 @@ class Engineer extends Employee {
         return "Engineer";
     }
 
-    getOfficeNumber() {
+    getGithub() {
         return this.github;
     }
 

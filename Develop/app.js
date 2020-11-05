@@ -92,7 +92,7 @@ function appMenu() {
                 type: "list",
                 name: "memberChoice",
                 message: "Which type of team member would you like to add?",
-                choice: [
+                choices: [
                     "Engineer",
                     "Intern",
                     "I don't want to add any more team members"
@@ -180,7 +180,7 @@ function appMenu() {
         ]).then(answers => {
             const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub)
             teamMembers.push(engineer);
-            idArray.push (answers.engineerId);
+            idArray.push (answers.engineerId)
             createTeam();
         });
 
@@ -253,10 +253,11 @@ function appMenu() {
 
             }
         ]).then(answers => {
-            const intern = new Intern(answers.internName, answers.internId, internEmail, answers.internSchool)
+            const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool)
             teamMembers.push(intern);
             idArray.push (answers.internId);
             createTeam();
+            
         });
     }
 
@@ -269,7 +270,7 @@ function appMenu() {
     }
 
     createManager();
-
+    
 
 }
 
