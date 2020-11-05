@@ -80,7 +80,7 @@ function appMenu() {
             const manager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.managerOfficeNumber)
             teamMembers.push(manager);
             idArray.push(answers.managerId);
-            fs.createReadStream();
+            fs.createTeam();
         });
     }
 }
