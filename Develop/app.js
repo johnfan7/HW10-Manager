@@ -77,10 +77,10 @@ function appMenu() {
                 }
             }
         ]).then(answers => {
-            const manager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.managerOfficeNumber)
+            const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber)
             teamMembers.push(manager);
             idArray.push(answers.managerId);
-            fs.createTeam();
+            createTeam();
         });
     }
 
@@ -177,7 +177,12 @@ function appMenu() {
             }
 
 
-        ])
+        ]).then(answers => {
+            const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub)
+            teamMembers.push(engineer);
+            idArray.push (answers.engineerId);
+            createTeam();
+        });
 
     }
 
@@ -247,11 +252,28 @@ function appMenu() {
                 }
 
             }
-        ])
+        ]).then(answers => {
+            const intern = new Intern(answers.internName, answers.internId, internEmail, answers.internSchool)
+            teamMembers.push(intern);
+            idArray.push (answers.internId);
+            createTeam();
+        });
     }
+
+    function buildTeam() {
+
+        if (!fs.existsSync(OUTPUT_DIR)) {
+            fs.mkdirSync(OUTPUT_DIR)
+        }
+        fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
+    }
+
+    createManager();
 
 
 }
+
+appMenu();
 
 
 
