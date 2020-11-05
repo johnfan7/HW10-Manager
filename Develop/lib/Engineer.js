@@ -9,7 +9,7 @@ class Engineer extends Employee {
     }
     
     getRole() {
-        return "Manager";
+        return "Engineer";
     }
 
     getOfficeNumber() {
@@ -18,4 +18,4 @@ class Engineer extends Employee {
 
 }
 
-module.exports = Engineer
+module.exports = Engineer;
